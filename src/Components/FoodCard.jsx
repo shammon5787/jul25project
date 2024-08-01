@@ -1,28 +1,25 @@
 import React from 'react'
-import img from '../Food/4.avif'
-import { IoIosStar } from "react-icons/io";
-import { useDispatch } from 'react-redux';
-import { addCard } from '../Store/CardSlice';
+import img from '../Food/3.avif'
+import { MdOutlineStar } from "react-icons/md";
 
-const FoodCard = ({id, name, price, image, desc, rating}) => {
-    const dispatch = useDispatch()
+const FoodCard = ({id, name, price, image, rating,  desc}) => {
     return (
-        <div className='mt-5 bg-gradient-to-t from-cyan-950 to-slate-700 w-full lg:w-[22vw] rounded-lg '>
-            <div className='p-3 flex items-center flex-col'>
-                <img className='lg:w-[200px] w-[50vw] h-[120px] cursor-grab rounded-lg ' src={image} alt="" />
+        <div className='bg-gray-700 w-full lg:w-[22vw] rounded-lg mt-3 '>
+            <div className='p-3 flex flex-col items-center'>
+                <img className=' w-[200px] h-[100px] rounded-lg cursor-grab hover:scale-110 transition-all duration-500 ' src={image} alt="" />
             </div>
-            <div className='p-3 bg-gradient-to-b from-green-950'>
-                <div className='flex items-center justify-between'>
-                    <h1 className='font-semibold'>{name}</h1>
-                    <h1 className='font-semibold'>$: {price}</h1>
+            <div className='p-3'>
+                <div className='flex items-center justify-between font-semibold'>
+                    <h1>{name}</h1>
+                    <h1>$: {price}</h1>
                 </div>
-                <p>{desc}</p>
-                <div className='flex items-center justify-between'>
-                    <span className='flex items-center'>
-                        <IoIosStar className='text-yellow-400 text-2xl' />
-                        <h1 className='font-semibold'>{rating}</h1>
+                <p>{desc}.</p>
+                <div className='flex justify-between'>
+                    <span className='flex items-center gap-1.5'>
+                        <MdOutlineStar className='text-yellow-500 text-3xl' />
+                        <h1>{rating}</h1>
                     </span>
-                    <button onClick={()=>dispatch(addCard({id, name, price, image, qty : 1}))} className='bg-slate-950 px-2 font-semibold rounded-md hover:bg-green-500 hover:text-black transition-all duration-500 py-1.5'>Add To Card</button>
+                    <button className='bg-gradient-to-l from-fuchsia-700 to-fuchsia-900 px-2 py-1 rounded-md hover:bg-gradient-to-l hover:from-black hover:to-slate-600 hover:text-yellow-700 font-semibold transition-all duration-500 mt-2'>Add To Card</button>
                 </div>
             </div>
         </div>
