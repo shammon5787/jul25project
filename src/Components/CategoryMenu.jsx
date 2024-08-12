@@ -5,25 +5,27 @@ import { addCategory } from '../Store/CategorySlice.jsx'
 
 const CategoryMenu = () => {
     const [categories, setcategories] = useState([])
-    const ListUniqueCategory = () => {
+    const listuniqueCategory = () => {
         const uniqueCategory = [... new Set(FoodData.map((food) => food.category))]
         setcategories(uniqueCategory)
     }
     useEffect(() => {
-        ListUniqueCategory()
+        listuniqueCategory()
     }, [])
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     return (
-        <div className='mt-24'>
-            <h1 className='font-bold text-3xl uppercase'>order your favorite food</h1>
-            <div className='flex items-center gap-5 mt-2'>
-                <button onClick={() => dispatch(addCategory("All"))} className='bg-blue-600 px-2 py-0.5 rounded-md font-semibold text-xl hover:bg-green-800'>All</button>
+        <div className='mt-20'>
+            <h1 className='font-bold text-2xl uppercase'>order your favorite food</h1>
+            <div className='flex items-center gap-4 mt-3'>
+            <button onClick={()=>dispatch(addCategory("All"))} className='bg-gradient-to-t from-zinc-950 to-gray-500 px-2 py-0.5 rounded-md font-semibold hover:bg-gradient-to-t hover:from-red-950 hover:to-white hover:text-black transition-all duration-500'>All</button>
                 {
-                    categories.map((category, index) => (
-                        <button onClick={() => dispatch(addCategory(category))} key={index} className='bg-blue-600 px-2 py-0.5 rounded-md font-semibold text-xl hover:bg-green-800'>{category}</button>
-                    ))
+                    categories.map((category, index) => {
+                        return (
+                            <button onClick={()=>dispatch(addCategory(category))} key={index} className='bg-gradient-to-t from-zinc-950 to-gray-500 px-2 py-0.5 rounded-md font-semibold hover:bg-gradient-to-t hover:from-red-950 hover:to-white hover:text-black transition-all duration-500'>{category}</button>
+                        )
+                    })
                 }
             </div>
         </div>
