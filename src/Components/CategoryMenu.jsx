@@ -13,17 +13,17 @@ const CategoryMenu = () => {
         listuniqueCategory()
     }, [])
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     return (
         <div className='mt-20'>
-            <h1 className='font-bold text-2xl uppercase'>order your favorite food</h1>
-            <div className='flex items-center gap-4 mt-3'>
-            <button onClick={()=>dispatch(addCategory("All"))} className='bg-gradient-to-t from-zinc-950 to-gray-500 px-2 py-0.5 rounded-md font-semibold hover:bg-gradient-to-t hover:from-red-950 hover:to-white hover:text-black transition-all duration-500'>All</button>
+            <h1 className='font-bold text-3xl uppercase'>order your favorite food</h1>
+            <div className='mt-3 flex items-center gap-5'>
+                <button onClick={() => dispatch(addCategory("All"))} className='bg-gradient-to-l py-0.5 from-slate-600 to-blue-800 px-2 rounded-md hover:bg-gradient-to-t hover:from-gray-50 hover:text-black font-semibold transition-all duration-500'>All</button>
                 {
                     categories.map((category, index) => {
                         return (
-                            <button onClick={()=>dispatch(addCategory(category))} key={index} className='bg-gradient-to-t from-zinc-950 to-gray-500 px-2 py-0.5 rounded-md font-semibold hover:bg-gradient-to-t hover:from-red-950 hover:to-white hover:text-black transition-all duration-500'>{category}</button>
+                            <button onClick={() => dispatch(addCategory(category))} key={index} className='bg-gradient-to-l py-0.5 from-slate-600 to-blue-800 px-2 rounded-md hover:bg-gradient-to-t hover:from-gray-50 hover:text-black font-semibold transition-all duration-500'>{category}</button>
                         )
                     })
                 }
